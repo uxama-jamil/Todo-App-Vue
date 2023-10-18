@@ -17,14 +17,7 @@ export default {
     },
     data(){
         return{
-            todolist:[{
-                task:"Today task",completed:false,
-
-            },
-            {
-                task:"Tomorrow task",completed:true,
-                
-            }],
+            todolist:[],
             input:""
         }
     },
@@ -43,12 +36,23 @@ export default {
             if(this.todolist.length>0)
             this.todolist[e].completed = !(this.todolist[e]?.completed)
         }
-    },emits:['delete-task','toggle-complete']
+    },
+    emits:['delete-task','toggle-complete'],
+    created(){
+        this.todolist=[{
+                task:"Today task",completed:false,
+
+            },
+            {
+                task:"Tomorrow task",completed:true,
+                
+            }]
+    }
 }
 </script>
 
 
-<style scoped>
+<style >
 .container{
     width:50%;
     display:flex;
@@ -60,18 +64,21 @@ export default {
 }
 input{
     padding:10px;
-    border:1px solid grey;
-    margin-bottom:10px;
+    border:1px dashed grey;
 
 }
+
 .input-add{
     display:flex;
     gap:10px;
 }
 button{
-    border:1px solid black;
-    padding:0px 0px;
+    border:1px dashed black;
+    padding:10px 10px;
     background-color:transparent;
+}
+button:hover,input:hover,input:active{
+    border-style: solid;
 }
 .input-add input{
     width:100%;

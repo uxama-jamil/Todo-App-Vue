@@ -23,6 +23,7 @@ export default {
     display:flex;
     gap:10px;
     justify-content:space-between;
+    align-items: center;
     border:1px dashed green;
     width:50%;
     padding:10px;
@@ -30,5 +31,10 @@ export default {
 }
 .completed{
     border-style:solid;
+}
+button{
+    border:1px dashed black;
+    padding:10px 10px;
+    background-color:transparent;
 }
 </style>
